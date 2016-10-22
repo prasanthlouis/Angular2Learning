@@ -4,10 +4,10 @@ import {Component} from '@angular/core';
     selector: 'pm-app',
     template: `
     <div><h1>{{pageTitle}}</h1></div>
-    <h2>Let's Code Some More</h2>
+    <pm-products><pm-products>
     `
 })
 export class AppComponent
 {
-    pageTitle : string = "Prasanth's Angular Page";
+    pageTitle : string = "Prasanth's Angular Movie Page";
 }
