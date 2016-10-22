@@ -3,9 +3,11 @@ import {Component} from '@angular/core';
 @Component({
     selector: 'pm-app',
     template: `
-    <div><h1>{PageTitle}</h1></div>`
+    <div><h1>{{pageTitle}}</h1></div>
+    <h2>Let's Code Some More</h2>
+    `
 })
-export class  AppComponent
+export class AppComponent
 {
-    pagetitle : string = "Prasanth's Angular Page";
+    pageTitle : string = "Prasanth's Angular Page";
 }
