@@ -15,7 +15,6 @@ var ProductListComponent = (function () {
         this.imageWidth = 50;
         this.imageHeight = 2;
         this.showImage = false;
-        this.listFilter = 'cart';
         this.products = [
             {
                 "productId": 1,
