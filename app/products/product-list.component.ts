@@ -75,4 +75,8 @@ toggleImage(): void {
 ngOnInit() : void {
     console.log("Reached the ngOnInit Method");
 }
+
+onRatingClicked(message: string) : void{
+    this.pageTitle = 'Product List' + message;
+}
 }
