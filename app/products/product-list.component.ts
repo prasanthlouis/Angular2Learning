@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
+import { ProductService } from './product.service';
 
 @Component({
     selector: 'pm-products',
@@ -10,71 +11,27 @@ import { IProduct } from './product';
 })
 export class ProductListComponent implements OnInit
 {
+
     pageTitle : string = "Movie List!";
     imageWidth : number = 50;
     imageHeight : number = 2;
     showImage : boolean = false;
     listFilter : string;
-    products : IProduct[] = [
-    {
-        "productId": 1,
-        "productName": "Batman",
-        "productCode": "GDN-0011",
-        "releaseDate": "March 19, 2016",
-        "description": "Leaf rake with 48-inch wooden handle.",
-        "price": 19.95,
-        "starRating": 3.2,
-        "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
-    },
-    {
-        "productId": 2,
-        "productName": "True Something",
-        "productCode": "GDN-0023",
-        "releaseDate": "March 18, 2016",
-        "description": "15 gallon capacity rolling garden cart",
-        "price": 32.99,
-        "starRating": 4.2,
-        "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
-    },
-    {
-        "productId": 5,
-        "productName": "Hahaha",
-        "productCode": "TBX-0048",
-        "releaseDate": "May 21, 2016",
-        "description": "Curved claw steel hammer",
-        "price": 8.9,
-        "starRating": 4.8,
-        "imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
-    },
-    {
-        "productId": 8,
-        "productName": "Saw",
-        "productCode": "TBX-0022",
-        "releaseDate": "May 15, 2016",
-        "description": "15-inch steel blade hand saw",
-        "price": 11.55,
-        "starRating": 3.7,
-        "imageUrl": "http://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png"
-    },
-    {
-        "productId": 10,
-        "productName": "geek",
-        "productCode": "GMG-0042",
-        "releaseDate": "October 15, 2015",
-        "description": "Standard two-button video game controller",
-        "price": 35.95,
-        "starRating": 4.6,
-        "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
-    }
-] ;
+    products : IProduct[] ;
+
+
 
 toggleImage(): void {
     this.showImage = !this.showImage;
 }
 
+constructor(private _productService : ProductService){}
+
 ngOnInit() : void {
-    console.log("Reached the ngOnInit Method");
+    console.log("Starting Up.");
+    this.products = this._productService.getProducts();
 }
+
 
 onRatingClicked(message: string) : void{
     this.pageTitle = 'Product List' + message;
